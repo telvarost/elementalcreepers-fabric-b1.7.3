@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "elementalcreepers",
+  "version": "${version}",
+
+  "name": "Elemental Creepers",
+  "description": "Adds a variety of different colored creepers that have different effects upon blowing up.",
+  "authors": [
+    "Slainlight",
+    "xSmallDeadGuyx"
+  ],
+  "contact": {
+    "homepage": "https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1275396-1-5-1-elemental-creepers-v3-2-1-daawwwwwww",
+    "sources": "https://github.com/matthewperiut/elementalcreepers-fabric-b1.7.3",
+    "issues": "https://github.com/matthewperiut/elementalcreepers-fabric-b1.7.3/issues"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/elementalcreepers/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "stationapi:event_bus": [
+      "com.matthewperiut.elementalcreepers.ElementalCreepersMod",
+      "com.matthewperiut.elementalcreepers.entity.EntityListener"
+    ],
+    "stationapi:event_bus_client": [
+      "com.matthewperiut.elementalcreepers.client.EntityRendererListener"
+    ],
+    "gcapi": [
+      "com.matthewperiut.elementalcreepers.ElementalCreepersMod"
+    ]
+  },
+  "mixins": [
+    "elementalcreepers.mixin.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "minecraft": "1.0.0-beta.7.3"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
