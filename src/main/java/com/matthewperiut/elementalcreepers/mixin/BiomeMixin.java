@@ -1,8 +1,7 @@
 package com.matthewperiut.elementalcreepers.mixin;
 
 import com.matthewperiut.elementalcreepers.ElementalCreepersMod;
-import com.matthewperiut.elementalcreepers.entity.behavior.CookieCreeper;
-import com.matthewperiut.elementalcreepers.entity.behavior.IceCreeper;
+import com.matthewperiut.elementalcreepers.entity.behavior.*;
 import net.minecraft.entity.EntityEntry;
 import net.minecraft.level.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,11 +22,11 @@ public class BiomeMixin
     private void addElementalCreepers(CallbackInfo ci) {
         monsters.add(new EntityEntry(IceCreeper.class, ElementalCreepersMod.config.cookieCreeperSpawn));
         monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.earthCreeperSpawn));
-        monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.electricCreeperSpawn));
-        monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.fireCreeperSpawn));
-        monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.iceCreeperSpawn));
-        monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.magmaCreeperSpawn));
-        monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.psychicCreeperSpawn));
-        monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.waterCreeperSpawn));
+        monsters.add(new EntityEntry(ElectricCreeper.class, ElementalCreepersMod.config.electricCreeperSpawn));
+        monsters.add(new EntityEntry(FireCreeper.class, ElementalCreepersMod.config.fireCreeperSpawn));
+        monsters.add(new EntityEntry(IceCreeper.class, ElementalCreepersMod.config.iceCreeperSpawn));
+        monsters.add(new EntityEntry(MagmaCreeper.class, ElementalCreepersMod.config.magmaCreeperSpawn));
+        monsters.add(new EntityEntry(PsychicCreeper.class, ElementalCreepersMod.config.psychicCreeperSpawn));
+        monsters.add(new EntityEntry(WaterCreeper.class, ElementalCreepersMod.config.waterCreeperSpawn));
     }
 }
