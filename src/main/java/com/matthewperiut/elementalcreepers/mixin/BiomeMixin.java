@@ -20,8 +20,8 @@ public class BiomeMixin
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void addElementalCreepers(CallbackInfo ci) {
-        monsters.add(new EntityEntry(IceCreeper.class, ElementalCreepersMod.config.cookieCreeperSpawn));
-        monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.earthCreeperSpawn));
+        monsters.add(new EntityEntry(CookieCreeper.class, ElementalCreepersMod.config.cookieCreeperSpawn));
+        monsters.add(new EntityEntry(EarthCreeper.class, ElementalCreepersMod.config.earthCreeperSpawn));
         monsters.add(new EntityEntry(ElectricCreeper.class, ElementalCreepersMod.config.electricCreeperSpawn));
         monsters.add(new EntityEntry(FireCreeper.class, ElementalCreepersMod.config.fireCreeperSpawn));
         monsters.add(new EntityEntry(IceCreeper.class, ElementalCreepersMod.config.iceCreeperSpawn));
