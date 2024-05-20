@@ -60,13 +60,11 @@ dependencies {
     modLocalRuntime("com.github.calmilamsy:ModMenu:${project.modmenu_version}") {
         transitive false
     }
-    modImplementation("net.glasslauncher.mods:GlassConfigAPI:${project.gcapi_version}") {
+    modImplementation("net.glasslauncher.mods:GlassConfigAPI:${project.gcapi_version}")
+    modLocalRuntime("net.glasslauncher:HowManyItems-Fabric-Unofficial:5.2.1") {
         transitive false
     }
-    modLocalRuntime("net.glasslauncher:HowManyItems-Fabric-Unofficial:5.0.13") {
-        transitive false
-    }
-    modImplementation('com.github.matthewperiut:spc-babric:0.2.0') {
+    modImplementation('com.github.matthewperiut:spc-babric:0.4.5') {
         transitive false
     }
 }
