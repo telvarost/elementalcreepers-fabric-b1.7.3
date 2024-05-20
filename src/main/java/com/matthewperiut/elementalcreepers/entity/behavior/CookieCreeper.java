@@ -9,8 +9,8 @@ import net.minecraft.entity.monster.Creeper;
 import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.server.entity.MobSpawnDataProvider;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 public class CookieCreeper extends Creeper implements MobSpawnDataProvider, CreeperExplosion
 {

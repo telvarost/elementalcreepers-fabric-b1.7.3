@@ -3,18 +3,16 @@ package com.matthewperiut.elementalcreepers.entity.behavior;
 import com.matthewperiut.elementalcreepers.ElementalCreepersMod;
 import com.matthewperiut.elementalcreepers.api.CreeperExplosion;
 import com.matthewperiut.elementalcreepers.entity.EntityListener;
-import net.minecraft.block.BlockBase;
 import net.minecraft.entity.EntityBase;
 import net.minecraft.entity.Lightning;
 import net.minecraft.entity.Living;
 import net.minecraft.entity.monster.Creeper;
 import net.minecraft.level.Level;
 import net.minecraft.util.maths.Box;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.server.entity.MobSpawnDataProvider;
 
 import java.util.List;
-import java.util.Random;
 
 public class ElectricCreeper extends Creeper implements MobSpawnDataProvider, CreeperExplosion
 {

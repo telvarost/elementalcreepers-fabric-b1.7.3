@@ -6,12 +6,9 @@ import com.matthewperiut.elementalcreepers.entity.EntityListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.Item;
 import net.minecraft.entity.monster.Creeper;
-import net.minecraft.item.ItemBase;
-import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.server.entity.MobSpawnDataProvider;
 
 public class IceCreeper extends Creeper implements MobSpawnDataProvider, CreeperExplosion
