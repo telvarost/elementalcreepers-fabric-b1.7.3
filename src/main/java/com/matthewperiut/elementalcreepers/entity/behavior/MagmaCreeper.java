@@ -4,12 +4,10 @@ import com.matthewperiut.elementalcreepers.ElementalCreepersMod;
 import com.matthewperiut.elementalcreepers.api.CreeperExplosion;
 import com.matthewperiut.elementalcreepers.entity.EntityListener;
 import net.minecraft.block.BlockBase;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityBase;
 import net.minecraft.entity.monster.Creeper;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.block.BlockState;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.server.entity.MobSpawnDataProvider;
 
 public class MagmaCreeper extends Creeper implements MobSpawnDataProvider, CreeperExplosion
