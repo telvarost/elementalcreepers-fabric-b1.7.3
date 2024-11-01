@@ -131,6 +131,7 @@ public class GhostCreeperRenderer extends LivingEntityRenderer
     }
 
     protected boolean bindTexture(LivingEntity entityliving, int i, float f) {
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         return this.bindTexture((GhostCreeper)entityliving, i, f);
     }
 
