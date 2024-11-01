@@ -1,9 +1,9 @@
 package com.matthewperiut.elementalcreepers.optional;
 
 import com.matthewperiut.elementalcreepers.entity.behavior.*;
-import com.matthewperiut.spc.api.PosParse;
-import com.matthewperiut.spc.api.SummonRegistry;
-import com.matthewperiut.spc.mixin.access.EntityAccessor;
+import com.matthewperiut.retrocommands.api.PosParse;
+import com.matthewperiut.retrocommands.api.SummonRegistry;
+import com.matthewperiut.retrocommands.mixin.access.EntityAccessor;
 import net.minecraft.entity.mob.CreeperEntity;
 
 public class SPCSupport
