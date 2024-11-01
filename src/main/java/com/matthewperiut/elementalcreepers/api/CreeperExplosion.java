@@ -1,14 +1,14 @@
 package com.matthewperiut.elementalcreepers.api;
 
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.monster.Creeper;
-import net.minecraft.level.Level;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.world.World;
 
 public interface CreeperExplosion
 {
-    default void detonate(Level level, EntityBase creeper, double x, double y, double z, float power)
+    default void detonate(World level, Entity creeper, double x, double y, double z, float power)
     {
-        if (((Creeper) creeper).isCharged()) {
+        if (((CreeperEntity) creeper).isCharged()) {
             level.createExplosion(creeper, x, y, z, 6.0F);
         } else {
             level.createExplosion(creeper, x, y, z, 3.0F);

@@ -4,16 +4,16 @@ import com.matthewperiut.elementalcreepers.entity.behavior.*;
 import com.matthewperiut.spc.api.PosParse;
 import com.matthewperiut.spc.api.SummonRegistry;
 import com.matthewperiut.spc.mixin.access.EntityAccessor;
-import net.minecraft.entity.monster.Creeper;
+import net.minecraft.entity.mob.CreeperEntity;
 
 public class SPCSupport
 {
-    private static Creeper handleCharge(Creeper creeper, PosParse pos, String[] param)
+    private static CreeperEntity handleCharge(CreeperEntity creeper, PosParse pos, String[] param)
     {
         if (param.length > 5)
             if (!param[5].isEmpty())
                 if (param[5].charAt(0) != '0')
-                    ((EntityAccessor) creeper).getDataTracker().setInt(17, (byte) 1);
+                    ((EntityAccessor) creeper).getDataTracker().set(17, (byte) 1);
 
         creeper.setPosition(pos.x, pos.y, pos.z);
 

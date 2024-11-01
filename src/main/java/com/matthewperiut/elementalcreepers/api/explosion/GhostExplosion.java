@@ -1,23 +1,22 @@
 package com.matthewperiut.elementalcreepers.api.explosion;
 
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.Living;
-import net.minecraft.level.Level;
-import net.minecraft.util.maths.Box;
-import net.minecraft.util.maths.MathHelper;
-import net.minecraft.util.maths.Vec3f;
-
 import java.util.List;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 public class GhostExplosion {
-	private Level worldObj;
+	private World worldObj;
 	public double explosionX;
 	public double explosionY;
 	public double explosionZ;
-	public EntityBase exploder;
+	public Entity exploder;
 	public float explosionSize;
 
-	public GhostExplosion(Level world, EntityBase entity, double d, double d1, double d2, float f) {
+	public GhostExplosion(World world, Entity entity, double d, double d1, double d2, float f) {
 		this.worldObj = world;
 		this.exploder = entity;
 		this.explosionSize = f;
@@ -35,11 +34,11 @@ public class GhostExplosion {
 		int i2 = MathHelper.floor(this.explosionZ - (double)this.explosionSize - 1.0D);
 		int j2 = MathHelper.floor(this.explosionZ + (double)this.explosionSize + 1.0D);
 		List list = this.worldObj.getEntities(this.exploder, Box.create((double)k, (double)k1, (double)i2, (double)i1, (double)l1, (double)j2));
-		Vec3f vec3d = Vec3f.from(this.explosionX, this.explosionY, this.explosionZ);
+		Vec3d vec3d = Vec3d.createCached(this.explosionX, this.explosionY, this.explosionZ);
 
 		for(int k2 = 0; k2 < list.size(); ++k2) {
-			EntityBase entity = (EntityBase) list.get(k2);
-			double d4 = entity.distanceTo(this.explosionX, this.explosionY, this.explosionZ) / (double)this.explosionSize;
+			Entity entity = (Entity) list.get(k2);
+			double d4 = entity.getDistance(this.explosionX, this.explosionY, this.explosionZ) / (double)this.explosionSize;
 			if(d4 <= 1.0D) {
 				double d6 = entity.x - this.explosionX;
 				double d8 = entity.y - this.explosionY;
@@ -48,7 +47,7 @@ public class GhostExplosion {
 				d6 /= d11;
 				d8 /= d11;
 				d10 /= d11;
-				double d12 = (double)this.worldObj.method_163(vec3d, entity.boundingBox);
+				double d12 = (double)this.worldObj.getVisibilityRatio(vec3d, entity.boundingBox);
 				double d13 = (1.0D - d4) * d12;
 				entity.damage(this.exploder, (int)((d13 * d13 + d13) / 2.0D * 8.0D * (double)this.explosionSize + 1.0D));
 				entity.velocityX += d6 * d13;
@@ -59,10 +58,10 @@ public class GhostExplosion {
 
 	}
 
-	public void doExplosionB(boolean flag, EntityBase entity) {
-		this.worldObj.playSound(this.explosionX, this.explosionY, this.explosionZ, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
-		if(entity instanceof Living) {
-			((Living)entity).onSpawnedFromSpawner();
+	public void doExplosionB(boolean flag, Entity entity) {
+		this.worldObj.playSound(this.explosionX, this.explosionY, this.explosionZ, "random.explode", 4.0F, (1.0F + (this.worldObj.random.nextFloat() - this.worldObj.random.nextFloat()) * 0.2F) * 0.7F);
+		if(entity instanceof LivingEntity) {
+			((LivingEntity)entity).animateSpawn();
 		}
 
 	}

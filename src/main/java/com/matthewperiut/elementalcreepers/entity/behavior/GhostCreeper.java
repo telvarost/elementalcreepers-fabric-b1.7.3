@@ -4,15 +4,15 @@ import com.matthewperiut.elementalcreepers.ElementalCreepersMod;
 import com.matthewperiut.elementalcreepers.api.CreeperExplosion;
 import com.matthewperiut.elementalcreepers.api.explosion.GhostExplosion;
 import com.matthewperiut.elementalcreepers.entity.EntityListener;
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.monster.Creeper;
-import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.util.Identifier;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.server.entity.MobSpawnDataProvider;
 
-public class GhostCreeper extends Creeper implements MobSpawnDataProvider, CreeperExplosion
+public class GhostCreeper extends CreeperEntity implements MobSpawnDataProvider, CreeperExplosion
 {
-    public GhostCreeper(Level arg)
+    public GhostCreeper(World arg)
     {
         super(arg);
     }
@@ -24,7 +24,7 @@ public class GhostCreeper extends Creeper implements MobSpawnDataProvider, Creep
     }
 
     @Override
-    public void detonate(Level level, EntityBase creeper, double x, double y, double z, float power)
+    public void detonate(World level, Entity creeper, double x, double y, double z, float power)
     {
         int strength;
         if(this.isCharged()) {
@@ -37,12 +37,12 @@ public class GhostCreeper extends Creeper implements MobSpawnDataProvider, Creep
         this.createGhostExplosion(this, this.x, this.y, this.z, 2.0F);
     }
 
-    public GhostExplosion createGhostExplosion(EntityBase entity, double d, double d1, double d2, float f) {
+    public GhostExplosion createGhostExplosion(Entity entity, double d, double d1, double d2, float f) {
         return this.newGhostExplosion(entity, d, d1, d2, f);
     }
 
-    public GhostExplosion newGhostExplosion(EntityBase entity, double d, double d1, double d2, float f) {
-        GhostExplosion explosion = new GhostExplosion(this.level, entity, d, d1, d2, f);
+    public GhostExplosion newGhostExplosion(Entity entity, double d, double d1, double d2, float f) {
+        GhostExplosion explosion = new GhostExplosion(this.world, entity, d, d1, d2, f);
         explosion.doExplosionA();
         explosion.doExplosionB(true, entity);
         return explosion;

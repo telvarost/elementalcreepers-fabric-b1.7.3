@@ -4,15 +4,15 @@ import com.matthewperiut.elementalcreepers.ElementalCreepersMod;
 import com.matthewperiut.elementalcreepers.api.CreeperExplosion;
 import com.matthewperiut.elementalcreepers.api.explosion.PsychicExplosion;
 import com.matthewperiut.elementalcreepers.entity.EntityListener;
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.monster.Creeper;
-import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.util.Identifier;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.server.entity.MobSpawnDataProvider;
 
-public class PsychicCreeper extends Creeper implements MobSpawnDataProvider, CreeperExplosion
+public class PsychicCreeper extends CreeperEntity implements MobSpawnDataProvider, CreeperExplosion
 {
-    public PsychicCreeper(Level arg)
+    public PsychicCreeper(World arg)
     {
         super(arg);
         texture = "elementalcreepers:textures/psychiccreeper.png";
@@ -25,18 +25,18 @@ public class PsychicCreeper extends Creeper implements MobSpawnDataProvider, Cre
     }
 
     @Override
-    public void detonate(Level level, EntityBase creeper, double posX, double posY, double posZ, float power)
+    public void detonate(World level, Entity creeper, double posX, double posY, double posZ, float power)
     {
         float p = isCharged() ? (float)ElementalCreepersMod.config.psychicCreeperPower * 1.5F : (float)ElementalCreepersMod.config.psychicCreeperPower;
         createPsychicCreeperLauncher(this, posX, posY, posZ, p);
     }
 
-    public PsychicExplosion createPsychicCreeperLauncher(EntityBase entity, double d, double d1, double d2, float f) {
+    public PsychicExplosion createPsychicCreeperLauncher(Entity entity, double d, double d1, double d2, float f) {
         return this.newPsychicCreeperLauncher(entity, d, d1, d2, f, false);
     }
 
-    public PsychicExplosion newPsychicCreeperLauncher(EntityBase entity, double d, double d1, double d2, float f, boolean flag) {
-        PsychicExplosion explosion = new PsychicExplosion(level, entity, d, d1, d2, f);
+    public PsychicExplosion newPsychicCreeperLauncher(Entity entity, double d, double d1, double d2, float f, boolean flag) {
+        PsychicExplosion explosion = new PsychicExplosion(world, entity, d, d1, d2, f);
         explosion.doExplosionA();
         explosion.doExplosionB(true);
         return explosion;
