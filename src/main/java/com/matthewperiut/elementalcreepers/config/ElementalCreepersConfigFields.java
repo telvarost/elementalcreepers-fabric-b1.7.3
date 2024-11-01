@@ -47,7 +47,7 @@ public class ElementalCreepersConfigFields
     public Integer electricCreeperRadius = 5;
     @MultiplayerSynced
     @ConfigName("Earth Creeper Explosion Radius")
-    public Integer earthCreeperRadius = 8;
+    public Integer earthCreeperRadius = 6;
     @MultiplayerSynced
     @ConfigName("Psychic Creeper Explosion Radius")
     public Integer psychicCreeperRadius = 5;
