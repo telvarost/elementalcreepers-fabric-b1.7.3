@@ -11,12 +11,12 @@ import org.lwjgl.opengl.GL11;
 public class GhostCreeperRenderer extends LivingEntityRenderer
 {
     private EntityModel model = new CreeperEntityModel(2.0F);
-    private EntityModel scaleAmount;
+    private EntityModel decorationModel;
 
     public GhostCreeperRenderer(EntityModel modelbase)
     {
         super(new CreeperEntityModel(), 0.5F);
-        this.scaleAmount = modelbase;
+        this.decorationModel = modelbase;
     }
 
     protected void applyScale(GhostCreeper entityghostcreeper, float f) {
@@ -98,7 +98,7 @@ public class GhostCreeperRenderer extends LivingEntityRenderer
 
     protected boolean renderSlimePassModel(GhostCreeper entityghostcreeper, int i, float f) {
         if(i == 0) {
-            this.setDecorationModel(this.scaleAmount);
+            this.setDecorationModel(this.decorationModel);
             GL11.glEnable(GL11.GL_NORMALIZE);
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
