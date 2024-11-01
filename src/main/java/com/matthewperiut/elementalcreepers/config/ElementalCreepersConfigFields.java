@@ -1,65 +1,66 @@
 package com.matthewperiut.elementalcreepers.config;
 
-import net.glasslauncher.mods.api.gcapi.api.ConfigName;
-import net.glasslauncher.mods.api.gcapi.api.MultiplayerSynced;
+import net.glasslauncher.mods.gcapi3.api.*;
 
 public class ElementalCreepersConfigFields
 {
-    @MultiplayerSynced
-    @ConfigName("Water Creeper Spawn Rate")
+    @ConfigEntry(name = "Biome Specific (Restart Required)", multiplayerSynced = true)
+    public Boolean biomeSpecific = false;
+
+    @ConfigEntry(name = "Water Creeper Spawn Rate", multiplayerSynced = true)
     public Integer waterCreeperSpawn = 6;
-    @MultiplayerSynced
-    @ConfigName("Fire Creeper Spawn Rate")
+
+    @ConfigEntry(name = "Fire Creeper Spawn Rate", multiplayerSynced = true)
     public Integer fireCreeperSpawn = 6;
-    @MultiplayerSynced
-    @ConfigName("Ice Creeper Spawn Rate")
+
+    @ConfigEntry(name = "Ice Creeper Spawn Rate", multiplayerSynced = true)
     public Integer iceCreeperSpawn = 3;
-    @MultiplayerSynced
-    @ConfigName("Electric Creeper Spawn Rate")
+
+    @ConfigEntry(name = "Electric Creeper Spawn Rate", multiplayerSynced = true)
     public Integer electricCreeperSpawn = 6;
-    @MultiplayerSynced
-    @ConfigName("Earth Creeper Spawn Rate")
+
+    @ConfigEntry(name = "Earth Creeper Spawn Rate", multiplayerSynced = true)
     public Integer earthCreeperSpawn = 3;
-    @MultiplayerSynced
-    @ConfigName("Psychic Creeper Spawn Rate")
+
+    @ConfigEntry(name = "Psychic Creeper Spawn Rate", multiplayerSynced = true)
     public Integer psychicCreeperSpawn = 6;
-    @MultiplayerSynced
-    @ConfigName("Cookie Creeper Spawn Rate")
+
+    @ConfigEntry(name = "Cookie Creeper Spawn Rate", multiplayerSynced = true)
     public Integer cookieCreeperSpawn = 1;
-    @MultiplayerSynced
-    @ConfigName("Magma Creeper Spawn Rate")
+
+    @ConfigEntry(name = "Magma Creeper Spawn Rate", multiplayerSynced = true)
     public Integer magmaCreeperSpawn = 1;
-    @MultiplayerSynced
-    @ConfigName("Water Creeper Explosion Radius")
+
+    @ConfigEntry(name = "Water Creeper Explosion Radius", multiplayerSynced = true)
     public Integer waterCreeperRadius = 2;
-    @MultiplayerSynced
-    @ConfigName("Fire Creeper Explosion Radius")
+
+    @ConfigEntry(name = "Fire Creeper Explosion Radius", multiplayerSynced = true)
     public Integer fireCreeperRadius = 6;
-    @MultiplayerSynced
-    @ConfigName("Ice Creeper Explosion Radius")
+
+    @ConfigEntry(name = "Ice Creeper Explosion Radius", multiplayerSynced = true)
     public Integer iceCreeperRadius = 6;
-    @MultiplayerSynced
-    @ConfigName("Electric Creeper Explosion Radius")
+
+    @ConfigEntry(name = "Electric Creeper Explosion Radius", multiplayerSynced = true)
     public Integer electricCreeperRadius = 5;
-    @MultiplayerSynced
-    @ConfigName("Earth Creeper Explosion Radius")
-    public Integer earthCreeperRadius = 8;
-    @MultiplayerSynced
-    @ConfigName("Psychic Creeper Explosion Radius")
+
+    @ConfigEntry(name = "Earth Creeper Explosion Radius", multiplayerSynced = true)
+    public Integer earthCreeperRadius = 6;
+
+    @ConfigEntry(name = "Psychic Creeper Explosion Radius", multiplayerSynced = true)
     public Integer psychicCreeperRadius = 5;
-    @MultiplayerSynced
-    @ConfigName("Psychic Creeper Explosion Power")
+
+    @ConfigEntry(name = "Psychic Creeper Explosion Power", multiplayerSynced = true)
     public Integer psychicCreeperPower = 6;
-    @MultiplayerSynced
-    @ConfigName("Cookie Creeper Drop Count")
+
+    @ConfigEntry(name = "Cookie Creeper Drop Count", multiplayerSynced = true)
     public Integer cookieCreeperAmount = 25;
-    @MultiplayerSynced
-    @ConfigName("Magma Creeper Explosion Radius")
+
+    @ConfigEntry(name = "Magma Creeper Explosion Radius", multiplayerSynced = true)
     public Integer magmaCreeperRadius = 2;
-    @MultiplayerSynced
-    @ConfigName("Ghost Creeper Explosion Radius")
+
+    @ConfigEntry(name = "Ghost Creeper Explosion Radius", multiplayerSynced = true)
     public Integer ghostCreeperRadius = 5;
-    @MultiplayerSynced
-    @ConfigName("Ghost Creeper Chance %")
+
+    @ConfigEntry(name = "Ghost Creeper Chance %", multiplayerSynced = true)
     public Integer ghostCreeperChance = 32;
 }

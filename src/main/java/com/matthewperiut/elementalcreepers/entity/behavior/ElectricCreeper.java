@@ -3,20 +3,20 @@ package com.matthewperiut.elementalcreepers.entity.behavior;
 import com.matthewperiut.elementalcreepers.ElementalCreepersMod;
 import com.matthewperiut.elementalcreepers.api.CreeperExplosion;
 import com.matthewperiut.elementalcreepers.entity.EntityListener;
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.Lightning;
-import net.minecraft.entity.Living;
-import net.minecraft.entity.monster.Creeper;
-import net.minecraft.level.Level;
-import net.minecraft.util.maths.Box;
 import net.modificationstation.stationapi.api.util.Identifier;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LightningEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.server.entity.MobSpawnDataProvider;
 
 import java.util.List;
 
-public class ElectricCreeper extends Creeper implements MobSpawnDataProvider, CreeperExplosion
+public class ElectricCreeper extends CreeperEntity implements MobSpawnDataProvider, CreeperExplosion
 {
-    public ElectricCreeper(Level arg)
+    public ElectricCreeper(World arg)
     {
         super(arg);
         texture = "elementalcreepers:textures/electriccreeper.png";
@@ -29,19 +29,19 @@ public class ElectricCreeper extends Creeper implements MobSpawnDataProvider, Cr
     }
 
     @Override
-    public void detonate(Level level, EntityBase creeper, double posX, double posY, double posZ, float power)
+    public void detonate(World level, Entity creeper, double posX, double posY, double posZ, float power)
     {
         int radius = isCharged() ? (int)((float)ElementalCreepersMod.config.electricCreeperRadius * 1.5F) : ElementalCreepersMod.config.electricCreeperRadius;
-        List list = level.getEntities(Living.class, Box.create(posX, posY, posZ, posX + 1.0D, posY + 1.0D, posZ + 1.0D).expand((double)radius, (double)radius, (double)radius));
+        List list = level.collectEntitiesByClass(LivingEntity.class, Box.create(posX, posY, posZ, posX + 1.0D, posY + 1.0D, posZ + 1.0D).expand((double)radius, (double)radius, (double)radius));
 
         for(int j = 0; j < list.size(); ++j) {
-            Living entityliving = (Living)list.get(j);
+            LivingEntity entityliving = (LivingEntity)list.get(j);
             if(entityliving != null && !(entityliving instanceof ElectricCreeper)) {
-                level.spawnEntity(new Lightning(level, entityliving.x, entityliving.y, entityliving.z));
+                level.spawnEntity(new LightningEntity(level, entityliving.x, entityliving.y, entityliving.z));
             }
         }
 
-        level.playSound(posX, posY, posZ, "random.explode", 4.0F, (1.0F + (level.rand.nextFloat() - level.rand.nextFloat()) * 0.2F) * 0.7F);
-        onSpawnedFromSpawner();
+        level.playSound(posX, posY, posZ, "random.explode", 4.0F, (1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.2F) * 0.7F);
+        animateSpawn();
     }
 }
